@@ -1,0 +1,12 @@
+##node modules
+node_modules
+
+#package.json files
+package.json
+package-lock.json
+
+#misc
+.parcel-cache
+node_modules
+.DS_Store
+.vscode
