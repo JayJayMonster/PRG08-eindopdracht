@@ -23,3 +23,11 @@ Het wordt uiteindelijk een mobiele applicatie. Dit gaan we leren in het volgende
 ## Beschrijf kort de eindgebruiker en de doelgroep.
 
 “Mensen die (kleine) duurzame oplossingen willen uitvoeren om gewoontes aan te passen, andere mensen te helpen en duurzamer te leven.”
+
+### Link naar github pages
+
+https://jayjaymonster.github.io/PRG08-eindopdracht/
+
+### Accuracy uitleg
+
+Ik heb niet een extreem hoge accuracy omdat ik hem best iets moeilijks probeer te leren. Ik heb geprobeerd de instellingen van m'n feature extractor aan te passen maar daar werd hij alleen slechter van. Nu heeft hij in ieder geval het vaak wel goed alleen is de accuracy niet heel hoog. Ik wilde graag nog meer foto's in mijn model zetten maar daar heb ik nu al 2x mijn laptop mee gecrasht dus dit waren de cijfers waar ik het mee moest doen (zie amount in de model.js)
