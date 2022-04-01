@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script> -->
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
     <script defer src="./js/index.js"></script>
     <title>Garbage</title>
   </head>
   <body>
-    <!-- <img src="" width="512" height="384" id="traincb" /> -->
-    <img src="./data/paper/paper100.jpg" id="classifyme1" />
+    <h1>Trash recognizer</h1>
+    <img src="" id="output" />
 
-    <button id="btn">Train</button>
-    <button id="save">Save</button>
+    <div id="upload-image">
+      <label>Upload your own: </label>
+      <input type="file" accept="image/*;capture=camera" id="file" />
+    </div>
+
+    <button id="btn">Classify</button>
     <div id="accuracy">Accuracy...</div>
   </body>
 </html>

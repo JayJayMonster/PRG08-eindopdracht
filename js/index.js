@@ -9,87 +9,51 @@ const featureExtractor = ml5.featureExtractor(
 );
 const classifier = featureExtractor.classification();
 
-//variables images
-let cbIndex = 0;
-const img = new Image(512, 384);
-let foldernames = ['cardboard', 'glass', 'metal', 'paper', 'plastic'];
-//let amount = [403, 501, 410, 594, 482];
-let amount = [10, 25, 20, 12, 15];
-let images = [];
-
-for (let index = 0; index < foldernames.length; index++) {
-  for (let i = 1; i < amount[index]; i++) {
-    images.push({
-      file: `./data/${foldernames[index]}/${foldernames[index]}${i}.jpg`,
-      label: `${foldernames[index]}`,
-    });
-  }
-}
-
-console.log(images);
-
 //variables accuracy
+const fileButton = document.getElementById('file');
 const button = document.getElementById('btn');
 const accuracy = document.getElementById('accuracy');
-const save = document.getElementById('save');
+const testImg = document.getElementById('output');
+let synth = window.speechSynthesis;
 
 //* event listeners
-button.addEventListener('click', training);
-save.addEventListener('click', saveModel);
+button.addEventListener('click', classify);
+fileButton.addEventListener('change', event => loadFile(event));
 
 //functions
 function modelLoaded() {
   console.log('Model loaded');
-  loadCB();
+  load();
 }
 
-function loadCB() {
-  img.src = images[cbIndex].file;
-  console.log(images[cbIndex].file);
-  img.addEventListener('load', addCb());
-}
-
-function addCb() {
-  console.log(`Dit is image ${cbIndex} with label ${images[cbIndex].label}`);
-  classifier.addImage(img, images[cbIndex].label, imageAddedCb);
-}
-
-function imageAddedCb() {
-  cbIndex++;
-  //console.log('Feature extractor finished');
-  if (cbIndex < images.length) {
-    loadCB();
-  } else {
-    console.log('finished loading images');
-  }
-}
-
-function training() {
-  classifier.train(lossValue => {
-    console.log('Loss is', lossValue);
-    if (lossValue == null) {
-      classify();
-      //save();
-    }
-  });
+function load() {
+  featureExtractor.load('./model/model.json');
+  console.log('Ive loaded my model');
 }
 
 function classify() {
   featureExtractor.classify(
-    document.getElementById('classifyme1'),
+    document.getElementById('output'),
     (err, result) => {
-      console.log(result); //? Should output 'metal'
+      //console.log(result);
       accuracy.innerText = `I am ${Math.round(
         result[0].confidence * 100
       )}% sure it is ${result[0].label}`;
+      speak(accuracy.innerHTML);
     }
   );
 }
 
-function saveModel() {
-  featureExtractor.save('Model');
+function speak(text) {
+  if (synth.speaking) {
+    return;
+  }
+  if (text !== '') {
+    let utterThis = new SpeechSynthesisUtterance(text);
+    synth.speak(utterThis);
+  }
 }
 
-function load() {
-  featureExtractor.load();
+function loadFile(event) {
+  testImg.src = URL.createObjectURL(event.target.files[0]);
 }
