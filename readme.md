@@ -31,3 +31,7 @@ https://jayjaymonster.github.io/PRG08-eindopdracht/
 ### Accuracy uitleg
 
 Ik heb niet een extreem hoge accuracy omdat ik hem best iets moeilijks probeer te leren. Ik heb geprobeerd de instellingen van m'n feature extractor aan te passen maar daar werd hij alleen slechter van. Nu heeft hij in ieder geval het vaak wel goed alleen is de accuracy niet heel hoog. Ik wilde graag nog meer foto's in mijn model zetten maar daar heb ik nu al 2x mijn laptop mee gecrasht dus dit waren de cijfers waar ik het mee moest doen (zie amount in de model.js)
+
+## Tweede prototype
+
+Ik heb een tweede prototype gemaakt met een Neural Network ipv de feature Extractor om te kijken of ik daar mijn accuracy mee kon verbeteren. Op dit moment werkt het wel maar wordt mijn laptop er zo traag van dat hij niet echt het model wil trainen. Ik moet nog even wat verder onderzoek doen om te kijken of ik het met mijn andere laptop of PC het misschien wel zou kunnen doen. Ik weet dus nog niet of dit accurater is.

@@ -13,10 +13,10 @@ const classifier = featureExtractor.classification();
 let cbIndex = 0;
 const img = new Image(512, 384);
 const testImg = document.getElementById('output');
-let foldernames = ['cardboard', 'glass', 'metal', 'paper', 'plastic'];
+let foldernames = ['cardboard', 'glass', 'metal'];
 //let amount = [403, 501, 410, 594, 482];
-let amount = [203, 301, 210, 394, 282];
-//let amount = [30, 35, 45, 32, 35];
+//let amount = [203, 301, 210, 394, 282];
+let amount = [30, 35, 45];
 let images = [];
 
 for (let index = 0; index < foldernames.length; index++) {
@@ -36,7 +36,7 @@ const save = document.getElementById('save');
 let synth = window.speechSynthesis;
 
 //* event listeners
-button.addEventListener('click', train);
+button.addEventListener('click', training);
 save.addEventListener('click', saveModel);
 fileButton.addEventListener('change', event => loadFile(event));
 
