@@ -18,14 +18,30 @@ h1 {
   padding: 10px 0;
 }
 
+#output {
+  padding: 10px;
+  border-radius: 15px;
+  margin: 10px;
+  width: 60%;
+}
+
 #upload-image {
   padding: 10px;
   background-color: #fff;
   border-radius: 15px;
   margin: 10px;
+  width: 50%;
 }
 
 #accuracy {
+  background-color: #fff;
+  width: 40%;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+}
+
+#recycle {
   background-color: #fff;
   width: 40%;
   border-radius: 15px;
