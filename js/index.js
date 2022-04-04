@@ -9,12 +9,16 @@ const featureExtractor = ml5.featureExtractor(
 );
 const classifier = featureExtractor.classification();
 
+const modelURL = URL + 'model.json';
+const metadataURL = URL + 'metadata.json';
+
 //variables accuracy
 const fileButton = document.getElementById('file');
 const button = document.getElementById('btn');
 const accuracy = document.getElementById('accuracy');
 const testImg = document.getElementById('output');
 let synth = window.speechSynthesis;
+const labelsArray = ['Cardboard', 'Glass', 'Metal', 'Paper', 'Plastic'];
 
 //* event listeners
 button.addEventListener('click', classify);
@@ -26,7 +30,7 @@ function modelLoaded() {
   load();
 }
 
-function load() {
+async function load() {
   featureExtractor.load('./model/model.json');
   console.log('Ive loaded my model');
 }
@@ -35,10 +39,10 @@ function classify() {
   featureExtractor.classify(
     document.getElementById('output'),
     (err, result) => {
-      //console.log(result);
+      console.log(result);
       accuracy.innerText = `I am ${Math.round(
         result[0].confidence * 100
-      )}% sure it is ${result[0].label}`;
+      )}% sure it is ${labelsArray[result[0].label]}`;
       speak(accuracy.innerHTML);
     }
   );
